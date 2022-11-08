@@ -1,15 +1,15 @@
 import React from 'react';
-import Services from '../Services/Services';
+import Services from '../Shared/Services/Services';
 import Headerbanner from './Headerbanner';
 
-const Home = () => {
+const Home = ({ datasize }) => {
     return (
         <div>
             <div className="container mx-auto">
                 <Headerbanner></Headerbanner>
             </div>
             <div>
-                <Services></Services>
+                <Services datasize={datasize}></Services>
             </div>
         </div>
     );

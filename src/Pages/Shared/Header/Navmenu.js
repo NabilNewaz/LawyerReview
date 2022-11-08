@@ -26,7 +26,7 @@ const Navmenu = () => {
     }
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-2">
             <Toaster
                 position="top-center"
                 reverseOrder={false}
@@ -48,7 +48,7 @@ const Navmenu = () => {
                     },
                 }}
             />
-            <Navbar style={{ backgroundColor: 'rgb(38 38 38)' }} className='bg-neutral-800 mt-2' fluid={true} rounded={true}>
+            <Navbar className='bg-neutral-800' fluid={true} rounded={true}>
                 <NavLink to="/">
                     <Navbar.Brand>
                         <Avatar
@@ -56,8 +56,8 @@ const Navmenu = () => {
                             img="https://image.similarpng.com/very-thumbnail/2021/06/Lawyer-and-Law-Firm-Logo-on-transparent-background-PNG.png"
                             rounded={true}
                         />
-                        <span style={{ fontFamily: "Playfair Display, serif" }} className="self-center ml-2 text-white whitespace-nowrap text-2xl font-bold dark:text-white">
-                            LAWYER Review
+                        <span style={{ fontFamily: "Playfair Display, serif" }} className="self-center border-2 px-2 py-1 rounded ml-2 text-white whitespace-nowrap text-2xl font-bold dark:text-white">
+                            LAWYER<span className='ml-1 font-extrabold'>.</span>
                         </span>
                     </Navbar.Brand>
                 </NavLink>
@@ -142,7 +142,7 @@ const Navmenu = () => {
                         </NavLink>
                     </Navbar.Link>
                     <Navbar.Link className='hover:bg-neutral-800 flex justify-center'>
-                        <NavLink className={({ isActive }) => isActive ? 'text-black border-2 font-bold bg-white px-3 md:py-2 py-1 rounded-lg' : 'hover:text-white border-2 px-3 md:py-2 py-1 rounded-lg text-gray-400'} to="/courses" >
+                        <NavLink className={({ isActive }) => isActive ? 'text-black border-2 font-bold bg-white px-3 md:py-2 py-1 rounded-lg' : 'hover:text-white border-2 px-3 md:py-2 py-1 rounded-lg text-gray-400'} to="/services" >
                             Services
                         </NavLink>
                     </Navbar.Link>

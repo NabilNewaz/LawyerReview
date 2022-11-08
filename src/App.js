@@ -9,7 +9,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Blog from './Pages/Blog/Blog';
 import Profile from './Pages/Profile/Profile';
 // import ResetPassword from './Pages/ResetPassword/ResetPassword';
-import Services from './Pages/Services/Services';
+import ServicesView from './Pages/Shared/Services/ServicesView';
 
 function App() {
   const router = createBrowserRouter([
@@ -20,17 +20,17 @@ function App() {
         {
           path: "/",
           // loader: () => fetch('https://b610-lerning-platform-server-side-nabil-newaz.vercel.app/courses'),
-          element: <Home sideNav={false}></Home>
+          element: <Home datasize={3}></Home>
         },
         {
           path: "/home",
           // loader: () => fetch('https://b610-lerning-platform-server-side-nabil-newaz.vercel.app/courses'),
-          element: <Home sideNav={false}></Home>
+          element: <Home datasize={3}></Home>
         },
         {
           path: "/services",
           // loader: () => fetch('https://b610-lerning-platform-server-side-nabil-newaz.vercel.app/courses'),
-          element: <Services></Services>
+          element: <ServicesView></ServicesView>
         },
         {
           path: "/login",
@@ -65,7 +65,7 @@ function App() {
     }
   ])
   return (
-    <div className='scrollbar-hide bg-neutral-800'>
+    <div>
       <RouterProvider router={router} />
     </div>
   );

@@ -5,7 +5,8 @@ import Header from '../Pages/Shared/Header/Header';
 
 const Main = () => {
     return (
-        <div className='flex flex-col h-screen justify-between mb-0.5'>
+        <div className='flex flex-col h-screen justify-between'>
+            {/* <div className='flex flex-col justify-between'> */}
             <Header></Header>
             <Outlet></Outlet>
             <FooterContent></FooterContent>

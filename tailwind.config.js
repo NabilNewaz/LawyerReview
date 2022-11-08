@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       spacing: {
         '8': '5px',
-      }
+      },
     },
   },
   plugins: [
