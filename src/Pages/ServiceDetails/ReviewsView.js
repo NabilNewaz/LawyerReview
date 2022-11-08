@@ -1,0 +1,40 @@
+import { Rating } from 'flowbite-react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const ReviewsView = ({ review }) => {
+    return (
+        <div className='mt-7'>
+            <article>
+                <div class="flex items-center mb-4 space-x-4">
+                    <img class="w-10 h-10 rounded-full" src={review.reviewer_info.userPhoto} alt="" />
+                    <div class="space-y-1 font-medium dark:text-white">
+                        <p className='text-2xl text-gray-100'>{review.reviewer_info.userName} <span class="block text-sm text-gray-500 dark:text-gray-400">{review.reviewer_info.userEmail}</span></p>
+                    </div>
+                </div>
+                <div class="flex items-center mb-1">
+                    <Rating>
+                        <Rating.Star filled={review.rating_value < 1 ? false : true} />
+                        <Rating.Star filled={review.rating_value < 2 ? false : true} />
+                        <Rating.Star filled={review.rating_value < 3 ? false : true} />
+                        <Rating.Star filled={review.rating_value < 4 ? false : true} />
+                        <Rating.Star filled={review.rating_value < 5 ? false : true} />
+                    </Rating>
+                </div>
+                <footer class="mb-5 text-sm text-gray-400 dark:text-gray-400"><p>Reviewed on <time>{review.review_date}</time></p></footer>
+                <p class="font-light text-gray-400 dark:text-gray-400 mb-3">{review.review_message}</p>
+                <aside>
+                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">{review.help_count} people found this helpful</p>
+                    <div class="flex items-center mt-3 space-x-3 divide-x divide-gray-200 dark:divide-gray-600">
+                        <Link href="#" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-2 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Helpful</Link>
+                        <Link href="#" class="pl-4 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Report abuse</Link>
+                    </div>
+                </aside>
+            </article>
+
+
+        </div>
+    );
+};
+
+export default ReviewsView;
