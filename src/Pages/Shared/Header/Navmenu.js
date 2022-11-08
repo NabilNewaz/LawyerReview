@@ -48,7 +48,7 @@ const Navmenu = () => {
                     },
                 }}
             />
-            <Navbar className='bg-neutral-800 mt-1' fluid={true} rounded={true}>
+            <Navbar style={{ backgroundColor: 'rgb(38 38 38)' }} className='bg-neutral-800 mt-2' fluid={true} rounded={true}>
                 <NavLink to="/">
                     <Navbar.Brand>
                         <Avatar
@@ -56,7 +56,7 @@ const Navmenu = () => {
                             img="https://image.similarpng.com/very-thumbnail/2021/06/Lawyer-and-Law-Firm-Logo-on-transparent-background-PNG.png"
                             rounded={true}
                         />
-                        <span className="self-center ml-2 text-white whitespace-nowrap text-xl font-semibold dark:text-white">
+                        <span style={{ fontFamily: "Playfair Display, serif" }} className="self-center ml-2 text-white whitespace-nowrap text-2xl font-bold dark:text-white">
                             LAWYER Review
                         </span>
                     </Navbar.Brand>
@@ -66,12 +66,12 @@ const Navmenu = () => {
                         <div className={user?.uid ? 'hidden' : 'block'}>
                             <Button.Group>
                                 <NavLink to="/login" className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-1' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-1'}>
-                                    <Button className='border' color="blue">
+                                    <Button className='border-2' color="blue">
                                         <span>Login</span>
                                     </Button>
                                 </NavLink>
                                 <NavLink to="/signup" className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-2' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-2'}>
-                                    <Button className='border' color="blue">
+                                    <Button className='border-2' color="blue">
                                         <span>Signup</span>
                                     </Button>
                                 </NavLink>
@@ -121,12 +121,12 @@ const Navmenu = () => {
                     <div className='mt-3'>
                         <Button.Group>
                             <NavLink to="/login" className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-1' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-1'}>
-                                <Button className='border' color="blue">
+                                <Button className='border-2' color="blue">
                                     <span className='dark:text-white'>Login</span>
                                 </Button>
                             </NavLink>
                             <NavLink to="/signup" className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-2' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-2'}>
-                                <Button className='border' color="blue">
+                                <Button className='border-2' color="blue">
                                     <span className='dark:text-white'>Signup</span>
 
                                 </Button>
@@ -135,19 +135,19 @@ const Navmenu = () => {
                     </div>
                 </div>
 
-                <Navbar.Collapse>
-                    <Navbar.Link className='hover:bg-neutral-800'>
-                        <NavLink className={({ isActive }) => isActive ? 'text-black font-bold bg-white px-3 md:py-2 py-1 rounded-lg mb-2' : 'hover:text-white text-gray-400 mb-2'} to="/home">
+                <Navbar.Collapse className='flex justify-center'>
+                    <Navbar.Link className='hover:bg-neutral-800 flex justify-center'>
+                        <NavLink className={({ isActive }) => isActive ? 'text-black border-2 font-bold bg-white px-3 md:py-2 py-1 rounded-lg' : 'hover:text-white border-2 px-3 md:py-2 py-1 rounded-lg text-gray-400'} to="/home">
                             Home
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link className='hover:bg-neutral-800'>
-                        <NavLink className={({ isActive }) => isActive ? 'text-black font-bold bg-white px-3 md:py-2 py-1 rounded-lg mb-2' : 'hover:text-white text-gray-400 mb-2'} to="/courses" >
+                    <Navbar.Link className='hover:bg-neutral-800 flex justify-center'>
+                        <NavLink className={({ isActive }) => isActive ? 'text-black border-2 font-bold bg-white px-3 md:py-2 py-1 rounded-lg' : 'hover:text-white border-2 px-3 md:py-2 py-1 rounded-lg text-gray-400'} to="/courses" >
                             Services
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link className='hover:bg-neutral-800'>
-                        <NavLink className={({ isActive }) => isActive ? 'text-black font-bold bg-white px-3 md:py-2 py-1 rounded-lg mb-2' : 'hover:text-white text-gray-400 mb-2'} to="/blog" >
+                    <Navbar.Link className='hover:bg-neutral-800 flex justify-center'>
+                        <NavLink className={({ isActive }) => isActive ? 'text-black border-2 font-bold bg-white px-3 md:py-2 py-1 rounded-lg ml-0' : 'hover:text-white border-2 px-3 md:py-2 py-1 rounded-lg text-gray-400 ml-0'} to="/blog" >
                             Blog
                         </NavLink>
                     </Navbar.Link>
