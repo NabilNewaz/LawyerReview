@@ -20,7 +20,7 @@ const ServicesView = ({ datasize }) => {
             });
     }, [datasize]);
     return (
-        <div className="container mx-auto px-3 md:px-5 mt-5 flex justify-center flex-col-reverse md:flex-row gap-4">
+        <div className="container mx-auto px-3 md:px-5 mt-5 flex justify-center flex-col-reverse md:flex-row gap-0">
             <div className="text-center">
                 <Spinner
                     className={loading ? 'block' : 'hidden'}

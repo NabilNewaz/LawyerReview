@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './Layout/Main';
-// import Coursedetails from './Pages/Coursedetails/Coursedetails';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Notfound from './Pages/Notfound/Notfound';
@@ -10,6 +9,7 @@ import Blog from './Pages/Blog/Blog';
 import Profile from './Pages/Profile/Profile';
 // import ResetPassword from './Pages/ResetPassword/ResetPassword';
 import ServicesView from './Pages/Shared/Services/ServicesView';
+import ServiceDetails from './Pages/ServiceDetails/ServiceDetails';
 
 function App() {
   const router = createBrowserRouter([
@@ -19,17 +19,10 @@ function App() {
       children: [
         {
           path: "/",
-          // loader: () => fetch('https://b610-lerning-platform-server-side-nabil-newaz.vercel.app/courses'),
-          element: <Home datasize={3}></Home>
-        },
-        {
-          path: "/home",
-          // loader: () => fetch('https://b610-lerning-platform-server-side-nabil-newaz.vercel.app/courses'),
           element: <Home datasize={3}></Home>
         },
         {
           path: "/services",
-          // loader: () => fetch('https://b610-lerning-platform-server-side-nabil-newaz.vercel.app/courses'),
           element: <ServicesView></ServicesView>
         },
         {
@@ -52,11 +45,11 @@ function App() {
         //   path: "/resetpassword",
         //   element: <PrivateRoute><ResetPassword></ResetPassword></PrivateRoute>
         // },
-        // {
-        //   path: "/course/:id",
-        //   loader: ({ params }) => fetch(`https://b610-lerning-platform-server-side-nabil-newaz.vercel.app/course/${params.id}`),
-        //   element: <Coursedetails></Coursedetails>
-        // },
+        {
+          path: "/service/:id",
+          loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
+          element: <ServiceDetails></ServiceDetails>
+        },
         {
           path: "*",
           element: <Notfound></Notfound>

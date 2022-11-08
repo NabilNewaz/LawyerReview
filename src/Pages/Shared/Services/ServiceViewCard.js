@@ -13,14 +13,15 @@ const ServiceViewCard = ({ service }) => {
         <div>
             <div>
                 <Card
+                    className='bg-transparent border-2'
                     horizontal={true}
-                    imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg"
+                    imgSrc={service.service_img}
                 >
-                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h5 className="text-2xl font-bold tracking-tight text-gray-100 dark:text-white">
                         {service.service_name}
                     </h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
-                        {service.service_discription.slice(0, 105)}<span className='font-semibold'>...Read More</span>
+                    <p className="font-normal text-gray-300 dark:text-gray-200">
+                        {service.service_discription.slice(0, 105)}<Link to={`/service/${service._id}`}><span className='font-semibold'>...Read More</span></Link>
                     </p>
                     <div className="mt-2.5 mb-5 flex items-center">
                         <Rating>
@@ -35,11 +36,11 @@ const ServiceViewCard = ({ service }) => {
                         </span>
                     </div>
                     <div className="flex items-center justify-between">
-                        <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                        <span className="text-3xl font-bold text-gray-200 dark:text-white">
                             <span className='text-3xl font-extrabold mr-1'>৳</span>{service.service_price}
                         </span>
-                        <Link onClick={ScrollToTop} to={`/course/${service._id}`}
-                            className="rounded-lg bg-blue-600 px-3 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-800 dark:focus:ring-blue-800">
+                        <Link onClick={ScrollToTop} to={`/service/${service._id}`}
+                            className="rounded-lg bg-slate-50 px-3 py-2.5 text-center text-sm font-medium text-clack hover:bg-slate-300 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-800 dark:focus:ring-blue-800">
                             <div className='flex items-center'>
                                 <span>View Details</span>
                                 <svg
