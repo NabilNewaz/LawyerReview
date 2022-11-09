@@ -13,7 +13,7 @@ const ServiceViewCard = ({ service }) => {
         <div>
             <div>
                 <Card
-                    className='bg-transparent border-2'
+                    className='bg-opacity-0 border-2'
                     horizontal={true}
                     imgSrc={service.service_img}
                 >

@@ -9,7 +9,6 @@ const Navmenu = () => {
     const location = useLocation();
 
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
 
     const handleLogOut = () => {
         logOut()
@@ -97,9 +96,19 @@ const Navmenu = () => {
                                                 {user?.email}
                                             </span>
                                         </Dropdown.Header>
+                                        <Link to="/my-reviews">
+                                            <Dropdown.Item>
+                                                My Reviews
+                                            </Dropdown.Item>
+                                        </Link>
+                                        <Link to="/resetpassword">
+                                            <Dropdown.Item>
+                                                Add Services
+                                            </Dropdown.Item>
+                                        </Link>
+                                        <Dropdown.Divider />
                                         <Link to="/profile">
                                             <Dropdown.Item>
-
                                                 Profile Setting
                                             </Dropdown.Item>
                                         </Link>
@@ -139,17 +148,17 @@ const Navmenu = () => {
                 </div>
 
                 <Navbar.Collapse className='flex justify-center'>
-                    <Navbar.Link className='hover:bg-transparent flex justify-center'>
+                    <Navbar.Link className='hover:bg-neutral-800 flex justify-center'>
                         <NavLink className={({ isActive }) => isActive ? 'text-black border-2 font-bold bg-white px-3 md:py-2 py-1 rounded-lg' : 'hover:text-white border-2 px-3 md:py-2 py-1 rounded-lg text-gray-400'} to="/">
                             Home
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link className='hover:bg-transparent flex justify-center'>
+                    <Navbar.Link className='hover:bg-neutral-800 flex justify-center'>
                         <NavLink className={({ isActive }) => isActive ? 'text-black border-2 font-bold bg-white px-3 md:py-2 py-1 rounded-lg' : 'hover:text-white border-2 px-3 md:py-2 py-1 rounded-lg text-gray-400'} to="/services" >
                             Services
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link className='hover:bg-transparent flex justify-center'>
+                    <Navbar.Link className='hover:bg-neutral-800 flex justify-center'>
                         <NavLink className={({ isActive }) => isActive ? 'text-black border-2 font-bold bg-white px-3 md:py-2 py-1 rounded-lg ml-0' : 'hover:text-white border-2 px-3 md:py-2 py-1 rounded-lg text-gray-400 ml-0'} to="/blog" >
                             Blog
                         </NavLink>

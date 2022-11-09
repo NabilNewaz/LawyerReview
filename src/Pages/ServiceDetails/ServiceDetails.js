@@ -17,8 +17,6 @@ const ServiceDetails = () => {
     const [ratingValue, setratingValue] = useState(0);
     const { user } = useContext(AuthContext);
 
-
-
     useEffect(() => {
         const url = `http://localhost:5000/service-reviews/${ServiceDetails._id}`;
         fetch(url)
@@ -43,7 +41,6 @@ const ServiceDetails = () => {
     const modalClose = () => {
         setToggleMoldal(false);
         setratingValue(0);
-        console.log(new Date().getTime());
     }
 
     const handleSubmitReview = event => {
@@ -96,7 +93,7 @@ const ServiceDetails = () => {
         <PhotoProvider>
             <div className='container mx-auto md:px-5 px-3 mb-5 mt-5'>
                 <div className='w-full mr-5 mb-5 md:mb-0'>
-                    <Card className='bg-transparent border-2'>
+                    <Card className='bg-opacity-0 border-2'>
                         <PhotoView src={ServiceDetails.service_img}>
                             <img className='object-cover h-96 w-full rounded-lg' src={ServiceDetails.service_img} alt="" />
                         </PhotoView>

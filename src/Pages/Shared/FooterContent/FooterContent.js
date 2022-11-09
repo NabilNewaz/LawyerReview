@@ -10,7 +10,7 @@ const FooterContent = () => {
     };
     return (
         <div className='container mx-auto md:px-5 pb-7 px-3 lg:px-5'>
-            <Footer className='bg-transparent border-2' container={true}>
+            <Footer className='bg-opacity-0 border-2' container={true}>
                 <div className="w-full">
                     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                         <div className='lg:w-2/6 md:w-1/3 mb-5 mb-5'>

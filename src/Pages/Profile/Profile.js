@@ -57,7 +57,7 @@ const Profile = () => {
         <div className='container mx-auto px-2 md:px-5 md:mt-5 mb-5'>
             <div className='md:flex gap-3'>
                 <div className="max-w-lg">
-                    <Card className='bg-transparent border-2'>
+                    <Card className='bg-opacity-0 border-2'>
                         <div className="flex flex-col items-center p-8">
                             <img
                                 className="mb-3 h-24 w-24 rounded-full shadow-lg border-2"
@@ -89,7 +89,7 @@ const Profile = () => {
                 <div className="flex flex-col w-full bg-transparent border-2 rounded-lg md:w-4/5 border-gray-150 mt-3 md:mt-0 dark:border-gray-700 dark:bg-gray-800">
                     <div className="flex flex-wrap items-center justify-between border-b border-gray-200 dark:border-gray-600 sm:flex-no-wrap">
                         <div className="relative p-6">
-                            <h3 className="flex text-lg font-medium leading-6 text-gray-600 dark:text-gray-300">
+                            <h3 className="flex text-lg font-medium leading-6 text-gray-200 dark:text-gray-300">
                                 <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 {user?.displayName ? user.displayName : 'Unnamed User'}'s Profile Settings
                             </h3>

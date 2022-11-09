@@ -10,6 +10,7 @@ import Profile from './Pages/Profile/Profile';
 // import ResetPassword from './Pages/ResetPassword/ResetPassword';
 import ServicesView from './Pages/Shared/Services/ServicesView';
 import ServiceDetails from './Pages/ServiceDetails/ServiceDetails';
+import Myreview from './Pages/Myreviews/Myreview';
 
 function App() {
   const router = createBrowserRouter([
@@ -40,6 +41,10 @@ function App() {
         {
           path: "/profile",
           element: <PrivateRoute><Profile></Profile></PrivateRoute>
+        },
+        {
+          path: "/my-reviews",
+          element: <PrivateRoute><Myreview></Myreview></PrivateRoute>
         },
         // {
         //   path: "/resetpassword",
