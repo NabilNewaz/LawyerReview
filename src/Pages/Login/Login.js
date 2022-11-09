@@ -16,7 +16,6 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(() => {
-                // const user = result.user;
                 toast.success('Successfully Sign In')
                 navigate(from, { replace: true });
             })
@@ -26,7 +25,6 @@ const Login = () => {
     const handleGithubSignIn = () => {
         providerLogin(githubProvider)
             .then(() => {
-                // const user = result.user;
                 toast.success('Successfully Sign In')
                 navigate(from, { replace: true });
             })
@@ -41,7 +39,6 @@ const Login = () => {
 
         signIn(email, password)
             .then(() => {
-                // const user = result.user;
                 form.reset();
                 toast.success('Successfully Sign In')
                 navigate(from, { replace: true });
@@ -53,11 +50,8 @@ const Login = () => {
             <div className="container md:w-1/3">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <div>
-                        <div className="mb-2 block">
-                            <Label
-                                htmlFor="email1"
-                                value="Your Email"
-                            />
+                        <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                            <span>Your Email</span>
                         </div>
                         <TextInput
                             id="email1"
@@ -68,11 +62,8 @@ const Login = () => {
                         />
                     </div>
                     <div>
-                        <div className="mb-2 block">
-                            <Label
-                                htmlFor="password1"
-                                value="Your Password"
-                            />
+                        <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                            <span>Your Password</span>
                         </div>
                         <TextInput
                             id="password1"
@@ -84,18 +75,18 @@ const Login = () => {
                     </div>
                     <div className="flex items-center gap-2">
                         <Checkbox id="remember" />
-                        <Label htmlFor="remember">
-                            Remember me
-                        </Label>
+                        <div className="block text-sm text-gray-200">
+                            <span>Remember me</span>
+                        </div>
                     </div>
-                    <Button type="submit">
+                    <button className='border-2 rounded-lg py-2 hover:bg-white font-semibold text-white hover:text-black' type="submit">
                         Login
-                    </Button>
+                    </button>
                 </form>
                 <div>
-                    <hr className='border mt-5'></hr>
-                    <p className='text-1xl font-semibold text-center mt-2 dark:text-gray-300'>OR Login With</p>
-                    <hr className='border mt-2'></hr>
+                    <hr className='border mt-5 border-gray-500'></hr>
+                    <p className='text-1xl font-semibold text-center mt-2 text-gray-400'>OR Login With</p>
+                    <hr className='border mt-2 border-gray-500'></hr>
                 </div>
                 <div>
                     <button onClick={handleGoogleSignIn} className='flex justify-center items-center bg-indigo-500 hover:bg-indigo-600 font-semibold text-white p-2 w-full rounded-lg mt-5'>
