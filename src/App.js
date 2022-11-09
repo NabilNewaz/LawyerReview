@@ -12,6 +12,7 @@ import ServicesView from './Pages/Shared/Services/ServicesView';
 import ServiceDetails from './Pages/ServiceDetails/ServiceDetails';
 import Myreview from './Pages/Myreviews/Myreview';
 import AddServices from './Pages/AddServices/AddServices';
+import ResetPassword from './Pages/ResetPassword/ResetPassword';
 
 function App() {
   const router = createBrowserRouter([
@@ -51,10 +52,10 @@ function App() {
           path: "/add-services",
           element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
         },
-        // {
-        //   path: "/resetpassword",
-        //   element: <PrivateRoute><ResetPassword></ResetPassword></PrivateRoute>
-        // },
+        {
+          path: "/resetpassword",
+          element: <PrivateRoute><ResetPassword></ResetPassword></PrivateRoute>
+        },
         {
           path: "/service/:id",
           loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
