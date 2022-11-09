@@ -30,7 +30,7 @@ const Myreview = () => {
                     size="md"
                 />
             </div>
-            <TaableView reviewData={reviewData}></TaableView>
+            <TaableView reviewData={reviewData} setLoading={setLoading}></TaableView>
         </div>
     );
 };

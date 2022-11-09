@@ -1,8 +1,7 @@
 import React from 'react';
 import TableRow from './TableRow';
 
-const TaableView = ({ reviewData }) => {
-    console.log(reviewData)
+const TaableView = ({ reviewData, setLoading }) => {
     return (
         <div>
             <div className="overflow-x-auto relative shadow-md sm:rounded-lg border-2">
@@ -33,7 +32,7 @@ const TaableView = ({ reviewData }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {reviewData.map(review => <TableRow key={reviewData._id} review={review}></TableRow>)}
+                        {reviewData.map(review => <TableRow key={reviewData._id} review={review} setLoading={setLoading}></TableRow>)}
                     </tbody>
                 </table>
             </div>
