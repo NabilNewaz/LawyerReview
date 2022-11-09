@@ -9,6 +9,7 @@ const ServiceViewCard = ({ service }) => {
             behavior: "smooth"
         });
     };
+
     return (
         <div>
             <div>
@@ -21,7 +22,7 @@ const ServiceViewCard = ({ service }) => {
                         {service.service_name}
                     </h5>
                     <p className="font-normal text-gray-300 dark:text-gray-200">
-                        {service.service_discription.slice(0, 105)}<Link to={`/service/${service._id}`}><span className='font-semibold'>...Read More</span></Link>
+                        {service.service_description.slice(0, 105)}<Link to={`/service/${service._id}`}><span className='font-semibold'>...Read More</span></Link>
                     </p>
                     <div className="mt-2.5 mb-5 flex items-center">
                         <Rating>

@@ -11,6 +11,7 @@ const Profile = () => {
     const onImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {
             setImage(URL.createObjectURL(event.target.files[0]));
+            console.log(event.target.files[0].mozFullPath);
         }
     }
 

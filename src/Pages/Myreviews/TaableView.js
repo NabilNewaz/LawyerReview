@@ -31,6 +31,13 @@ const TaableView = ({ reviewData, setLoading }) => {
                             </th>
                         </tr>
                     </thead>
+                    <tbody className={(reviewData.length <= 0) ? '' : 'hidden'}>
+                        <tr>
+                            <th colspan="7">
+                                <p className='text-2xl font-semibold text-center p-5 text-gray-400'>No Review Found</p>
+                            </th>
+                        </tr>
+                    </tbody>
                     <tbody>
                         {reviewData.map(review => <TableRow key={reviewData._id} review={review} setLoading={setLoading}></TableRow>)}
                     </tbody>

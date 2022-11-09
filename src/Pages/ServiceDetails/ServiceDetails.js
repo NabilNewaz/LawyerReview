@@ -105,7 +105,7 @@ const ServiceDetails = () => {
                         <div>
                             <p className='text-2xl font-semibold text-gray-200'>About This Service</p>
                             <p className="font-normal text-gray-400">
-                                {ServiceDetails.service_discription}
+                                {ServiceDetails.service_description}
                             </p>
                         </div>
                         <div className="flex flex-col mt-5 md:mt-3">

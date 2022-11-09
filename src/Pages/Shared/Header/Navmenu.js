@@ -101,7 +101,7 @@ const Navmenu = () => {
                                                 My Reviews
                                             </Dropdown.Item>
                                         </Link>
-                                        <Link to="/resetpassword">
+                                        <Link to="/add-services">
                                             <Dropdown.Item>
                                                 Add Services
                                             </Dropdown.Item>
