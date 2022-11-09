@@ -26,21 +26,22 @@ const TableRow = ({ review, setLoading }) => {
     const handleUpdateReview = event => {
         event.preventDefault();
         const form = event.target;
+        const id = form.reviewid.value;
         const rating = form.rating.value;
         const reviewMsg = form.reviewmsg.value;
 
-        const review = {
+        const newReview = {
             rating_value: rating,
             review_message: reviewMsg,
-            review_date: new Date().getTime(),
+            review_date: new Date().getTime()
         }
 
-        fetch('http://localhost:5000/reviews', {
-            method: 'POST',
+        fetch(`http://localhost:5000/reviews/${id}`, {
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(review)
+            body: JSON.stringify(newReview)
         })
             .then(res => res.json())
             .then(data => {
@@ -48,11 +49,11 @@ const TableRow = ({ review, setLoading }) => {
                     form.reset();
                     setToggleEditModal(false);
                     setLoading(true);
-                    toast.success("Review Added Successfully");
+                    toast.success("Review Updated Successfully");
                 }
             })
             .catch(er => {
-                toast.error("Review Not Added");
+                toast.error("Review Not Updated");
             });
 
     }
@@ -152,6 +153,15 @@ const TableRow = ({ review, setLoading }) => {
                                         defaultValue={review.review_message}
                                         required={true}
                                         rows={4}
+                                    />
+                                </div>
+                                <div>
+                                    <TextInput
+                                        className='hidden'
+                                        id="reviewid"
+                                        name="reviewid"
+                                        value={review._id}
+                                        hidden
                                     />
                                 </div>
                                 <div className="w-full">

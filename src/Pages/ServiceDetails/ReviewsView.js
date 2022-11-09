@@ -1,12 +1,12 @@
-import { Rating } from 'flowbite-react';
+import { Dropdown, Rating } from 'flowbite-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ReviewsView = ({ review }) => {
     return (
-        <div className='mt-7'>
+        <div className='mt-5'>
             <article>
-                <div class="flex items-center mb-4 space-x-4">
+                <div class="flex items-center mb-3 space-x-4">
                     <img class="w-10 h-10 rounded-full" src={review.reviewer_info.userPhoto} alt="" />
                     <div class="space-y-1 font-medium dark:text-white">
                         <p className='text-2xl text-gray-100'>{review.reviewer_info.userName} <span class="block text-sm text-gray-500 dark:text-gray-400">{review.reviewer_info.userEmail}</span></p>
@@ -21,8 +21,8 @@ const ReviewsView = ({ review }) => {
                         <Rating.Star filled={review.rating_value < 5 ? false : true} />
                     </Rating>
                 </div>
-                <footer class="mb-5 text-sm text-gray-400 dark:text-gray-400"><p>Reviewed on <time>{new Date(parseInt(review.review_date)).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</time></p></footer>
-                <p class="font-light text-gray-400 dark:text-gray-400 mb-3">{review.review_message}</p>
+                <footer class="mb-3 text-sm text-gray-400 dark:text-gray-400"><p>Reviewed on <time>{new Date(parseInt(review.review_date)).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</time></p></footer>
+                <p class="font-light text-gray-200 dark:text-gray-400 mb-3">{review.review_message}</p>
                 <aside>
                     <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">{review.help_count} people found this helpful</p>
                     <div class="flex items-center mt-3 space-x-3 divide-x divide-gray-200 dark:divide-gray-600">
@@ -30,9 +30,10 @@ const ReviewsView = ({ review }) => {
                         <Link href="#" class="pl-4 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Report abuse</Link>
                     </div>
                 </aside>
+                <div className='mt-5'>
+                    <Dropdown.Divider />
+                </div>
             </article>
-
-
         </div>
     );
 };
