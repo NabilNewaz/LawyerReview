@@ -21,7 +21,7 @@ const ReviewsView = ({ review }) => {
                         <Rating.Star filled={review.rating_value < 5 ? false : true} />
                     </Rating>
                 </div>
-                <footer class="mb-5 text-sm text-gray-400 dark:text-gray-400"><p>Reviewed on <time>{review.review_date}</time></p></footer>
+                <footer class="mb-5 text-sm text-gray-400 dark:text-gray-400"><p>Reviewed on <time>{new Date(parseInt(review.review_date)).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</time></p></footer>
                 <p class="font-light text-gray-400 dark:text-gray-400 mb-3">{review.review_message}</p>
                 <aside>
                     <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">{review.help_count} people found this helpful</p>

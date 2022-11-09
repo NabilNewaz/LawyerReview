@@ -1,10 +1,12 @@
 import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
 import React, { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/Authprovider/Authprovider';
 
+
 const Navmenu = () => {
+    const location = useLocation();
 
     const { user, logOut } = useContext(AuthContext);
     console.log(user);
@@ -66,12 +68,12 @@ const Navmenu = () => {
                     <div className='hidden md:flex'>
                         <div className={user?.uid ? 'hidden' : 'block'}>
                             <Button.Group>
-                                <NavLink to="/login" className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-1' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-1'}>
+                                <NavLink to="/login" state={{ from: location }} replace className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-1' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-1'}>
                                     <Button className='border-2' color="blue">
                                         <span>Login</span>
                                     </Button>
                                 </NavLink>
-                                <NavLink to="/signup" className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-2' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-2'}>
+                                <NavLink to="/signup" state={{ from: location }} replace className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-2' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-2'}>
                                     <Button className='border-2' color="blue">
                                         <span>Signup</span>
                                     </Button>
@@ -121,12 +123,12 @@ const Navmenu = () => {
                 <div className={user?.uid ? 'hidden' : 'flex mt-3 md:hidden mx-auto'}>
                     <div className='mt-3'>
                         <Button.Group>
-                            <NavLink to="/login" className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-1' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-1'}>
+                            <NavLink to="/login" state={{ from: location }} replace className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-1' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-1'}>
                                 <Button className='border-2' color="blue">
                                     <span className='dark:text-white'>Login</span>
                                 </Button>
                             </NavLink>
-                            <NavLink to="/signup" className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-2' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-2'}>
+                            <NavLink to="/signup" state={{ from: location }} replace className={({ isActive }) => isActive ? 'text-black font-bold bg-white rounded-lg mr-2' : 'hover:bg-white text-white hover:rounded-lg hover:text-black mr-2'}>
                                 <Button className='border-2' color="blue">
                                     <span className='dark:text-white'>Signup</span>
 

@@ -2,7 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Authprovider/Authprovider';
 
 const Signup = () => {
@@ -10,11 +10,15 @@ const Signup = () => {
     const { providerLogin, createUser, updateUserProfile, errorMsgToast, setLoading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(() => {
-                toast.success('Successfully Sign In')
+                toast.success('Successfully Sign In');
+                navigate(from, { replace: true });
             })
             .catch(error => errorMsgToast(error));
     }
@@ -22,7 +26,8 @@ const Signup = () => {
     const handleGithubSignIn = () => {
         providerLogin(githubProvider)
             .then(() => {
-                toast.success('Successfully Sign In')
+                toast.success('Successfully Sign In');
+                navigate(from, { replace: true });
             })
             .catch(error => errorMsgToast(error));
     }
@@ -45,6 +50,7 @@ const Signup = () => {
                     form.reset();
                     handleUpdateUserProfile(fullName, photoUrl);
                     toast.success('Successfully Sign In');
+                    navigate(from, { replace: true });
                 })
                 .catch(error => errorMsgToast(error));
         }

@@ -1,20 +1,26 @@
-import { Card, Rating, Spinner } from 'flowbite-react';
-import React, { useEffect, useState } from 'react';
+import { Button, Card, Modal, Rating, Spinner, Textarea, TextInput } from 'flowbite-react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import ReviewsView from './ReviewsView';
 import { MdRateReview } from "react-icons/md";
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../Contexts/Authprovider/Authprovider';
 
 
 const ServiceDetails = () => {
     const ServiceDetails = useLoaderData();
     const [serviceReviews, setServiceReviews] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [toggleModal, setToggleMoldal] = useState(false);
+    const [ratingValue, setratingValue] = useState(0);
+    const { user } = useContext(AuthContext);
+
+
 
     useEffect(() => {
-        const url = `http://localhost:5000/reviews/${ServiceDetails._id}`;
+        const url = `http://localhost:5000/service-reviews/${ServiceDetails._id}`;
         fetch(url)
             .then((response) => response.json())
             .then((actualData) => {
@@ -25,6 +31,66 @@ const ServiceDetails = () => {
                 toast.error(err.message);
             });
     }, [ServiceDetails._id, loading]);
+
+    const handleWriteReview = () => {
+        if (!user) {
+            toast.error("Please Login To Add a Review");
+        }
+        else {
+            setToggleMoldal(true);
+        }
+    }
+    const modalClose = () => {
+        setToggleMoldal(false);
+        setratingValue(0);
+        console.log(new Date().getTime());
+    }
+
+    const handleSubmitReview = event => {
+        event.preventDefault();
+        const form = event.target;
+        const rating = form.rating.value;
+        const reviewMsg = form.reviewmsg.value;
+        const username = form.username.value;
+        const userphoto = form.userphoto.value;
+
+        const review = {
+            service_id: ServiceDetails._id,
+            service_name: ServiceDetails.service_name,
+            rating_value: rating,
+            review_message: reviewMsg,
+            review_date: new Date().getTime(),
+            help_count: 0,
+            abuse_count: 0,
+            reviewer_info: {
+                userID: user?.uid,
+                userName: username,
+                userEmail: user?.email,
+                userPhoto: userphoto
+            }
+        }
+
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    form.reset();
+                    setToggleMoldal(false);
+                    setLoading(true);
+                    toast.success("Review Added Successfully");
+                }
+            })
+            .catch(er => {
+                toast.error("Review Not Added");
+            });
+
+    }
 
     return (
         <PhotoProvider>
@@ -71,15 +137,12 @@ const ServiceDetails = () => {
                                         <p className='text-3xl font-semibold text-gray-200'>Reviews</p>
                                         <p className='text-gray-400'>All Reviews about This Service - {ServiceDetails.service_name}</p>
                                     </div>
-                                    <button onClick={() => setLoading(true)} className="justify-center text-white bg-neutral-800 border-2 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 mt-4 md:mt-0">
+                                    <button onClick={() => handleWriteReview()} className="justify-center text-white bg-neutral-800 border-2 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 mt-4 md:mt-0">
                                         <div className='flex items-center justify-center'>
                                             <MdRateReview className="mr-2 h-6 w-6" />
                                             <span>Write Your Review</span>
                                         </div>
                                     </button>
-                                </div>
-                                <div className={!(serviceReviews.length <= 0) ? 'hidden' : 'block'}>
-                                    <p className='text-2xl font-semibold text-gray-500 text-center mt-16 mb-16'>No Reviews Yet Added</p>
                                 </div>
                                 <div>
                                     <div className="text-center">
@@ -89,26 +152,104 @@ const ServiceDetails = () => {
                                             size="md"
                                         />
                                     </div>
-                                    {serviceReviews.map(review => <ReviewsView key={review._id} review={review}></ReviewsView>)}
                                 </div>
+                                <div className={!(serviceReviews.length <= 0) ? 'hidden' : 'block'}>
+                                    <p className='text-2xl font-semibold text-gray-500 text-center mt-12 mb-12'>No Reviews Yet Added</p>
+                                </div>
+                                {serviceReviews.map(review => <ReviewsView key={review._id} review={review}></ReviewsView>)}
                             </div>
                         </div>
-                        {/* <Link to={`/checkout/${ServiceDetails.service_id}`}>
-                            <Button onClick={ScrollToTop} className='w-full'>
-                                Get Premium Access
-                                <svg
-                                    className="ml-2 -mr-1 h-4 w-4"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
-                            </Button>
-                        </Link> */}
+                        <React.Fragment>
+                            <Modal
+                                show={(toggleModal) ? true : false}
+                                size="md"
+                                popup={true}
+                                onClose={modalClose}
+                            >
+                                <Modal.Header className='bg-neutral-800 border-2 border-b-0 rounded-t-lg' />
+                                <Modal.Body className='bg-neutral-800 border-2 border-t-0 rounded-b-lg'>
+                                    <form onSubmit={handleSubmitReview}>
+                                        <div className="space-y-6 px-0 pb-4 sm:pb-6 lg:px-5 xl:pb-8">
+                                            <h3 className="text-xl font-medium text-gray-100 dark:text-white">
+                                                Write A Review
+                                            </h3>
+                                            <div>
+                                                <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                                                    <span>Your Name</span>
+                                                </div>
+                                                <TextInput
+                                                    id="username"
+                                                    name='username'
+                                                    placeholder={user?.displayName ? user.displayName : 'Unnamed User'}
+                                                    value={user?.displayName ? user.displayName : 'Unnamed User'}
+                                                    required={true}
+                                                    disabled
+                                                />
+                                            </div>
+                                            <div>
+                                                <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                                                    <span>Your email</span>
+                                                </div>
+                                                <TextInput
+                                                    className='cursor-not-allowed'
+                                                    id="email"
+                                                    name='email'
+                                                    placeholder={user?.email}
+                                                    value={user?.email}
+                                                    required={true}
+                                                    disabled
+                                                />
+                                            </div>
+                                            <div>
+                                                <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                                                    <span>Give a Rating</span>
+                                                </div>
+                                                <Rating>
+                                                    <div className='cursor-pointer' onClick={() => setratingValue(1)}><Rating.Star filled={ratingValue < 1 ? false : true} /></div>
+                                                    <div className='cursor-pointer' onClick={() => setratingValue(2)}><Rating.Star filled={ratingValue < 2 ? false : true} /></div>
+                                                    <div className='cursor-pointer' onClick={() => setratingValue(3)}><Rating.Star filled={ratingValue < 3 ? false : true} /></div>
+                                                    <div className='cursor-pointer' onClick={() => setratingValue(4)}><Rating.Star filled={ratingValue < 4 ? false : true} /></div>
+                                                    <div className='cursor-pointer' onClick={() => setratingValue(5)}><Rating.Star filled={ratingValue < 5 ? false : true} /></div>
+                                                </Rating>
+                                                <TextInput
+                                                    className='hidden'
+                                                    id="rating"
+                                                    name="rating"
+                                                    value={ratingValue}
+                                                    hidden
+                                                />
+                                            </div>
+                                            <div>
+                                                <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                                                    <span>Your Review</span>
+                                                </div>
+                                                <Textarea
+                                                    id="reviewmsg"
+                                                    name="reviewmsg"
+                                                    placeholder="Leave a review massage..."
+                                                    required={true}
+                                                    rows={4}
+                                                />
+                                            </div>
+                                            <div>
+                                                <TextInput
+                                                    className='hidden'
+                                                    id="userphoto"
+                                                    name="userphoto"
+                                                    value={user?.photoURL ? user?.photoURL : 'https://i.ibb.co/X2xMzwL/defultuser.png'}
+                                                    hidden
+                                                />
+                                            </div>
+                                            <div className="w-full">
+                                                <Button type="submit">
+                                                    Submit Review
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </Modal.Body>
+                            </Modal>
+                        </React.Fragment>
                     </Card>
                 </div>
             </div>
