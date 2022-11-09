@@ -24,6 +24,7 @@ const TableRow = ({ review }) => {
             </td>
             <td className="py-4 px-6">
                 {review.help_count}
+
             </td>
             <td className="py-4 px-6">
                 {review.abuse_count}
