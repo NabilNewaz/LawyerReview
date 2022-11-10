@@ -157,7 +157,7 @@ const ServiceDetails = () => {
                                 <div className={!(serviceReviews.length <= 0) ? 'hidden' : 'block'}>
                                     <p className='text-2xl font-semibold text-gray-500 text-center mt-12 mb-12'>No Reviews Yet Added</p>
                                 </div>
-                                {serviceReviews.map(review => <ReviewsView key={review._id} review={review}></ReviewsView>)}
+                                {serviceReviews.map(review => <ReviewsView key={review._id} review={review} setLoading={setLoading}></ReviewsView>)}
                             </div>
                         </div>
                         <React.Fragment>
