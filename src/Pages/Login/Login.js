@@ -1,5 +1,5 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
+import { Checkbox, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';

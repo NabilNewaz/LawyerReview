@@ -1,5 +1,5 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
+import { Checkbox, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -74,11 +74,8 @@ const Signup = () => {
                 <div className="container md:w-1/3">
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                         <div>
-                            <div className="mb-2 block">
-                                <Label
-                                    htmlFor="fullname1"
-                                    value="Full Name"
-                                />
+                            <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                                <span>Full Name</span>
                             </div>
                             <TextInput
                                 id="fullname1"
@@ -90,11 +87,8 @@ const Signup = () => {
                             />
                         </div>
                         <div>
-                            <div className="mb-2 block">
-                                <Label
-                                    htmlFor="photourl1"
-                                    value="Profile Photo (Optional)"
-                                />
+                            <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                                <span>Profile Photo (Optional)</span>
                             </div>
                             <TextInput
                                 id="photourl1"
@@ -106,11 +100,8 @@ const Signup = () => {
                             />
                         </div>
                         <div>
-                            <div className="mb-2 block">
-                                <Label
-                                    htmlFor="email2"
-                                    value="Your Email"
-                                />
+                            <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                                <span>Your Email</span>
                             </div>
                             <TextInput
                                 id="email2"
@@ -122,11 +113,8 @@ const Signup = () => {
                             />
                         </div>
                         <div>
-                            <div className="mb-2 block">
-                                <Label
-                                    htmlFor="password2"
-                                    value="Your Password"
-                                />
+                            <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                                <span>Your Password</span>
                             </div>
                             <TextInput
                                 id="password2"
@@ -138,11 +126,8 @@ const Signup = () => {
                             />
                         </div>
                         <div>
-                            <div className="mb-2 block">
-                                <Label
-                                    htmlFor="repeat-password"
-                                    value="Repeat Password"
-                                />
+                            <div className="mb-2 block text-sm text-gray-200 font-semibold">
+                                <span>Repeat Password</span>
                             </div>
                             <TextInput
                                 id="repeat-password"
@@ -155,21 +140,21 @@ const Signup = () => {
                         </div>
                         <div className="flex items-center gap-2">
                             <Checkbox onChange={() => checked ? setChecked(false) : setChecked(true)} name='agreeterms' type="checkbox" id="agree" />
-                            <Label htmlFor="agree">
-                                I agree with the{' '}
-                                <Link to="/terms" className="text-blue-600 hover:underline dark:text-blue-500">
+                            <div className="block text-sm text-gray-400">
+                                <span> I agree with the{' '}</span>
+                                <Link to="/terms" className="text-gray-100 hover:underline dark:text-blue-500 font-semibold">
                                     terms and conditions
                                 </Link>
-                            </Label>
+                            </div>
                         </div>
-                        <Button className={checked ? 'cursor-pointer disabled' : 'cursor-not-allowed'} disabled={!checked} type="submit">
+                        <button className={checked ? 'cursor-pointer disabled border-2 rounded-lg py-2 hover:bg-white font-semibold text-white hover:text-black' : 'cursor-not-allowed border-2 rounded-lg py-2 hover:bg-gray-400 font-semibold text-white hover:text-black'} disabled={!checked} type="submit">
                             Register New Account
-                        </Button>
+                        </button>
                     </form>
                     <div>
-                        <hr className='border mt-5'></hr>
-                        <p className='text-1xl font-semibold text-center mt-2 dark:text-gray-300'>OR Signup With</p>
-                        <hr className='border mt-2'></hr>
+                        <hr className='border mt-5 border-gray-500'></hr>
+                        <p className='text-1xl font-semibold text-center mt-2 text-gray-400'>OR Signup With</p>
+                        <hr className='border mt-2 border-gray-500'></hr>
                     </div>
                     <div>
                         <button onClick={handleGoogleSignIn} className='flex justify-center items-center bg-indigo-500 hover:bg-indigo-600 font-semibold text-white p-2 w-full rounded-lg mt-5'>
