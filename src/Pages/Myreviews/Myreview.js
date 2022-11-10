@@ -11,7 +11,7 @@ const Myreview = () => {
     const [reviewData, setReviewData] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/user-reviews/${user.uid}`;
+        const url = `https://b6a11-service-review-server-side-nabil-newaz.vercel.app/user-reviews/${user.uid}`;
         fetch(url, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`

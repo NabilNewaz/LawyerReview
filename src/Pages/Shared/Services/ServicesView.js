@@ -8,7 +8,7 @@ const ServicesView = ({ datasize }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const url = `http://localhost:5000/services${datasize ? `?datasize=${datasize}` : ''}`;
+        const url = `https://b6a11-service-review-server-side-nabil-newaz.vercel.app/services${datasize ? `?datasize=${datasize}` : ''}`;
         fetch(url)
             .then((response) => response.json())
             .then((actualData) => {

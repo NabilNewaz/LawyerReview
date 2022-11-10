@@ -8,7 +8,7 @@ const ReviewsView = ({ review, setLoading }) => {
             help_count: 1
         }
 
-        fetch(`http://localhost:5000/reviews-help/${review._id}`, {
+        fetch(`https://b6a11-service-review-server-side-nabil-newaz.vercel.app/reviews-help/${review._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -33,7 +33,7 @@ const ReviewsView = ({ review, setLoading }) => {
             abuse_count: 1
         }
 
-        fetch(`http://localhost:5000/reviews-abuse/${review._id}`, {
+        fetch(`https://b6a11-service-review-server-side-nabil-newaz.vercel.app/reviews-abuse/${review._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
