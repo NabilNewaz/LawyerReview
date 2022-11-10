@@ -7,7 +7,6 @@ import Signup from './Pages/Signup/Signup';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Blog from './Pages/Blog/Blog';
 import Profile from './Pages/Profile/Profile';
-// import ResetPassword from './Pages/ResetPassword/ResetPassword';
 import ServicesView from './Pages/Shared/Services/ServicesView';
 import ServiceDetails from './Pages/ServiceDetails/ServiceDetails';
 import Myreview from './Pages/Myreviews/Myreview';

@@ -16,18 +16,50 @@ const Signup = () => {
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
-            .then(() => {
-                toast.success('Successfully Sign In');
-                navigate(from, { replace: true });
+            .then(result => {
+                const user = result.user;
+                const currentUser = {
+                    uid: user.uid
+                }
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('token', data.token);
+                        toast.success('Successfully Sign Up')
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(error => errorMsgToast(error));
     }
 
     const handleGithubSignIn = () => {
         providerLogin(githubProvider)
-            .then(() => {
-                toast.success('Successfully Sign In');
-                navigate(from, { replace: true });
+            .then(result => {
+                const user = result.user;
+                const currentUser = {
+                    uid: user.uid
+                }
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('token', data.token);
+                        toast.success('Successfully Sign In')
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(error => errorMsgToast(error));
     }
@@ -46,11 +78,27 @@ const Signup = () => {
         }
         else {
             createUser(email, password)
-                .then(() => {
+                .then(result => {
+                    const user = result.user;
                     form.reset();
-                    handleUpdateUserProfile(fullName, photoUrl);
-                    toast.success('Successfully Sign In');
-                    navigate(from, { replace: true });
+                    const currentUser = {
+                        uid: user.uid
+                    }
+                    fetch('http://localhost:5000/jwt', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(currentUser)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            localStorage.setItem('token', data.token);
+                            handleUpdateUserProfile(fullName, photoUrl);
+                            toast.success('Successfully Sign In')
+                            navigate(from, { replace: true });
+                        })
                 })
                 .catch(error => errorMsgToast(error));
         }

@@ -5,14 +5,23 @@ import { AuthContext } from '../../Contexts/Authprovider/Authprovider';
 import TaableView from './TaableView';
 
 const Myreview = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [loading, setLoading] = useState(true);
     const [reviewData, setReviewData] = useState([]);
 
     useEffect(() => {
         const url = `http://localhost:5000/user-reviews/${user.uid}`;
-        fetch(url)
-            .then((response) => response.json())
+        fetch(url, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then((response) => {
+                if (response.status === 401 || response.status === 403) {
+                    logOut();
+                }
+                return response.json();
+            })
             .then((actualData) => {
                 setReviewData(actualData);
                 setLoading(false);
@@ -20,7 +29,7 @@ const Myreview = () => {
             .catch((err) => {
                 toast.error(err.message);
             });
-    }, [user.uid, loading]);
+    }, [user.uid, loading, logOut]);
     return (
         <div className='container mx-auto md:px-5 px-3 mb-9 md:mt-5'>
             <div className="text-center p-5">

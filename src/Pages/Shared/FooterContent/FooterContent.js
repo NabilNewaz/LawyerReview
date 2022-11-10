@@ -25,7 +25,7 @@ const FooterContent = () => {
                                 </span>
                             </Link>
                             <p className='mt-3 dark:text-white md:text-justify text-gray-300'>
-                                This is a eLearning WebApp. We provide a quality learning platform in the domains of Computer Science / Information Technology / Programming Languages / Web technology.
+                                These online personal reviews for a Lawyer are testament to the high level of service provided to all clients. Not only did these clients achieve their goals, but they now have the knowledge, the mindset, and the ability to maintain the results they’ve obtained!
                             </p>
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
@@ -72,11 +72,11 @@ const FooterContent = () => {
                             year={new Date().getFullYear()}
                         />
                         <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-                            <button onClick={() => openInNewTab('https://facebook.com')}><FontAwesomeIcon className='text-xl text-gray-500 dark:hover:text-white' icon={faFacebook} /></button>
-                            <button onClick={() => openInNewTab('https://www.instagram.com')}><FontAwesomeIcon className='text-xl text-gray-500 dark:hover:text-white' icon={faInstagram} /></button>
-                            <button onClick={() => openInNewTab('https://twitter.com')}><FontAwesomeIcon className='text-xl text-gray-500 dark:hover:text-white' icon={faTwitter} /></button>
-                            <button onClick={() => openInNewTab('https://github.com')}><FontAwesomeIcon className='text-xl text-gray-500 dark:hover:text-white' icon={faGithub} /></button>
-                            <button onClick={() => openInNewTab('https://www.twitch.tv')}><FontAwesomeIcon className='text-xl text-gray-500 dark:hover:text-white' icon={faTwitch} /></button>
+                            <button onClick={() => openInNewTab('https://facebook.com')}><FontAwesomeIcon className='text-xl text-gray-400 dark:hover:text-white' icon={faFacebook} /></button>
+                            <button onClick={() => openInNewTab('https://www.instagram.com')}><FontAwesomeIcon className='text-xl text-gray-400 dark:hover:text-white' icon={faInstagram} /></button>
+                            <button onClick={() => openInNewTab('https://twitter.com')}><FontAwesomeIcon className='text-xl text-gray-400 dark:hover:text-white' icon={faTwitter} /></button>
+                            <button onClick={() => openInNewTab('https://github.com')}><FontAwesomeIcon className='text-xl text-gray-400 dark:hover:text-white' icon={faGithub} /></button>
+                            <button onClick={() => openInNewTab('https://www.twitch.tv')}><FontAwesomeIcon className='text-xl text-gray-400 dark:hover:text-white' icon={faTwitch} /></button>
                         </div>
                     </div>
                 </div>
