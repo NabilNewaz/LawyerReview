@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Services from '../Shared/Services/ServicesHome';
+import Appointment from './Appointment';
 import Headerbanner from './Headerbanner';
 
 const Home = ({ datasize }) => {
@@ -14,6 +15,15 @@ const Home = ({ datasize }) => {
             </div>
             <div>
                 <Services datasize={datasize}></Services>
+            </div>
+            <div>
+                <div className='text-center px-3 md:px-0'>
+                    <h1 style={{ fontFamily: "Playfair Display, serif" }} className='md:text-4xl text-3xl flex justify-center text-white text-gray-100'>Contact Me For Appointment</h1>
+                    <p style={{ fontFamily: "Playfair Display, serif" }} className='text-2xl flex justify-center text-gray-400 italic mt-1'>I meet with you face to face, please stay with us by rating the services.</p>
+                </div>
+                <div>
+                    <Appointment></Appointment>
+                </div>
             </div>
         </div>
     );
