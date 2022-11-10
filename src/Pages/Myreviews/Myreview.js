@@ -1,5 +1,6 @@
 import { Spinner } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Contexts/Authprovider/Authprovider';
 import TaableView from './TaableView';
@@ -33,6 +34,9 @@ const Myreview = () => {
     }, [user.uid, loading, logOut]);
     return (
         <div className='container mx-auto md:px-5 px-3 mb-9 md:mt-5'>
+            <Helmet>
+                <title>My Review - Lawyer</title>
+            </Helmet>
             <div className="text-center p-5">
                 <Spinner
                     className={loading ? 'block' : 'hidden'}

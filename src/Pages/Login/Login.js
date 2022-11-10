@@ -1,6 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { Checkbox, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Authprovider/Authprovider';
@@ -95,6 +96,9 @@ const Login = () => {
     }
     return (
         <div className="flex justify-center mx-3 py-2">
+            <Helmet>
+                <title>Login - Lawyer</title>
+            </Helmet>
             <div className="container md:w-1/3">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <div>

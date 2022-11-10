@@ -1,5 +1,6 @@
 import { Badge, Card, Textarea, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Authprovider/Authprovider';
@@ -56,6 +57,9 @@ const Profile = () => {
 
     return (
         <div className='container mx-auto px-2 md:px-5 md:mt-5 mb-5'>
+            <Helmet>
+                <title>Profile Setting - Lawyer</title>
+            </Helmet>
             <div className='md:flex gap-3'>
                 <div className="max-w-lg">
                     <Card className='bg-opacity-0 border-2'>

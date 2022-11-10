@@ -1,5 +1,6 @@
 import { Rating, Textarea, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 
 const AddServices = () => {
@@ -43,6 +44,9 @@ const AddServices = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Add Services - Lawyer</title>
+            </Helmet>
             <div className="flex justify-center mx-3">
                 <div className="container md:w-1/3">
                     <form onSubmit={handleSubmitNewService} className="flex flex-col gap-4">

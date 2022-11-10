@@ -7,11 +7,11 @@ import Signup from './Pages/Signup/Signup';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Blog from './Pages/Blog/Blog';
 import Profile from './Pages/Profile/Profile';
-import ServicesView from './Pages/Shared/Services/ServicesView';
 import ServiceDetails from './Pages/ServiceDetails/ServiceDetails';
 import Myreview from './Pages/Myreviews/Myreview';
 import AddServices from './Pages/AddServices/AddServices';
 import ResetPassword from './Pages/ResetPassword/ResetPassword';
+import ServicesPage from './Pages/Shared/Services/ServicesPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -25,7 +25,7 @@ function App() {
         },
         {
           path: "/services",
-          element: <ServicesView></ServicesView>
+          element: <ServicesPage></ServicesPage>
         },
         {
           path: "/login",

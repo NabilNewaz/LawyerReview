@@ -1,9 +1,13 @@
 import { Accordion } from 'flowbite-react';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Blog = () => {
     return (
         <div className='container mx-auto px-5 mt-5 mb-5 md:mt-0 md:mb-0'>
+            <Helmet>
+                <title>Blog - Lawyer</title>
+            </Helmet>
             <Accordion>
                 <Accordion.Panel>
                     <Accordion.Title>

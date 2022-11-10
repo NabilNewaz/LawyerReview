@@ -7,6 +7,7 @@ import ReviewsView from './ReviewsView';
 import { MdRateReview } from "react-icons/md";
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Contexts/Authprovider/Authprovider';
+import { Helmet } from 'react-helmet-async';
 
 
 const ServiceDetails = () => {
@@ -92,6 +93,9 @@ const ServiceDetails = () => {
     return (
         <PhotoProvider>
             <div className='container mx-auto md:px-5 px-3 mb-5 mt-5'>
+                <Helmet>
+                    <title>Service Details - Lawyer</title>
+                </Helmet>
                 <div className='w-full mr-5 mb-5 md:mb-0'>
                     <Card className='bg-opacity-0 border-2'>
                         <PhotoView src={ServiceDetails.service_img}>
