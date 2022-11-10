@@ -1,6 +1,8 @@
 import React from 'react';
 import { BsFillBriefcaseFill } from "react-icons/bs";
 import { AiFillBank } from "react-icons/ai";
+import { MdFamilyRestroom } from "react-icons/md";
+import { RiBookFill } from "react-icons/ri";
 
 const PracticeArea = () => {
     return (
@@ -16,12 +18,12 @@ const PracticeArea = () => {
                 <p className='text-1xl text-center text-white'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
             </div>
             <div className='bg-[url("https://preview.colorlib.com/theme/lawyer/img/practice/3.png")] opacity-80 flex flex-col items-center border-2 rounded-lg bg-no-repeat bg-center p-16'>
-                <BsFillBriefcaseFill className='text-9xl text-white'></BsFillBriefcaseFill>
+                <MdFamilyRestroom className='text-9xl text-white'></MdFamilyRestroom>
                 <p className='text-2xl text-white font-bold'>Family Law</p>
                 <p className='text-1xl text-center text-white'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
             </div>
             <div className='bg-[url("https://preview.colorlib.com/theme/lawyer/img/practice/4.png")] opacity-80 flex flex-col items-center border-2 rounded-lg bg-no-repeat bg-center p-16'>
-                <BsFillBriefcaseFill className='text-9xl text-white'></BsFillBriefcaseFill>
+                <RiBookFill className='text-9xl text-white'></RiBookFill>
                 <p className='text-2xl text-white font-bold'>Education Law</p>
                 <p className='text-1xl text-center text-white'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
             </div>
