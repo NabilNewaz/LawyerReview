@@ -1,29 +1,29 @@
 # nLearning Web Application
 
-This project was with React App For eLearning Platform.
+This project was A Lawyer Review Website For Review His Services With React, Node.js, MongoDB.
 
-Server Side Repo : [Click Here](https://github.com/NabilNewaz/nLearning-ServerSide)
+Server Side Repo : [Click Here](https://github.com/NabilNewaz/LawyerReview-ServerSide)
 
-Live Site : [https://nlearning-website.web.app](https://nlearning-website.web.app)
+Live Site : [https://lawer-review.web.app](https://lawer-review.web.app)
 
 ## Available Features
 
 In the project, you can see:
 
-* Courses Page
-* Courses Details Page
-* Course Enrollment
-* Course CheckOut Page
+* Servises Page
+* Servises Details Page
+* Servises Review Writting Option
+* Manage Review Page
+* Manage Servises Page
+* Review Helpfull or report Option
 * Google And Github Authentication
 * Email And Password Authentication
 * Blogs Page
-* FAQ Page
 * User's Profile Page
 * User's Profile System
 * Password Reset System
 * Email Verification System
 * Course Details Download System
-* Day/Night Theme Toggle
 * Single Page Application
 * Multi Routes Navigation
  
